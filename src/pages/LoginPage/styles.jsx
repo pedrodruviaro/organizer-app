@@ -1,9 +1,15 @@
 import styled from "styled-components";
+import pattern from '../../assets/images/pattern.svg'
 
 export const LoginPage = styled.div`
     display: flex;
     justify-content: space-between;
     min-height: 100vh;
+    background-image: url(${pattern});
+            
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
 
     .left {
         display: flex;
@@ -12,19 +18,20 @@ export const LoginPage = styled.div`
         justify-content: center;
         gap: 4rem;
         padding: 1.5rem;
-        background-color: #f1f1f1;
+        background-color: transparent;
         flex: 6;
 
+        
         img {
             max-width: 350px;
         }
-
+        
         h1 {
             font-size: 4rem;
             font-weight: 300;
         }
     }
-
+    
     .right {
         flex: 8;
         display: flex;
@@ -38,6 +45,7 @@ export const LoginPage = styled.div`
             border-radius: 4px;
             padding: 3rem;
             text-align: center;
+            background-color: #fefefe;
 
             h2 {
                 font-size: 2rem;

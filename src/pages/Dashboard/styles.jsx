@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Dashboard = styled.div`
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: min-content 1fr;
     grid-auto-rows: min-content 1fr min-content;
     grid-template-areas: "header header"
                         "aside main"
@@ -15,5 +15,9 @@ export const Dashboard = styled.div`
     
     footer {
         grid-area: footer;
+    }
+
+    aside {
+        grid-area: aside;
     }
 `
