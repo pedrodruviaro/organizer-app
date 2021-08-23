@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import { lightTheme } from "./styles/Themes";
+import { ResetStyles } from "./styles/ResetStyles";
+import { GlobalStyles } from "./styles/GlobalStyles";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AuthContextProvider from './contexts/AuthContext'
+import LoginPage from "./pages/LoginPage";
+import Dashboard from "./pages/Dashboard";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ThemeProvider theme={lightTheme}>
+            <GlobalStyles />
+            <ResetStyles />
+
+            <AuthContextProvider>
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path="/" component={LoginPage} />
+                        <PrivateRoute path="/dashboard" component={Dashboard} />
+                    </Switch>
+                </BrowserRouter>
+            </AuthContextProvider>
+        </ThemeProvider>
+    );
 }
 
 export default App;
