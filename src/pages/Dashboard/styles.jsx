@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const Dashboard = styled.div`
+    margin-left: 5rem;
     display: grid;
-    grid-template-columns: min-content 1fr;
+    grid-template-columns: 1fr;
     grid-auto-rows: min-content 1fr min-content;
-    grid-template-areas: "header header"
-                        "aside main"
-                        "footer footer";
+    grid-template-areas: "header"
+                        "main"
+                        "footer";
     min-height: 100vh;
 
     header {
@@ -15,9 +16,5 @@ export const Dashboard = styled.div`
     
     footer {
         grid-area: footer;
-    }
-
-    aside {
-        grid-area: aside;
     }
 `

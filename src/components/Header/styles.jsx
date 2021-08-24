@@ -8,19 +8,7 @@ export const Header = styled.header`
     padding: 1rem 1.5rem;
     z-index: 999;
 
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-
-        svg {
-            font-size: 1.5rem;
-        }
-
-        span {
-            font-size: 1.25rem;
-        }
-    }
+    
 
     .user-info {
         display: flex;
