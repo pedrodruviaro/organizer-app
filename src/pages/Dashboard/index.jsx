@@ -3,8 +3,9 @@ import { Dashboard } from "./styles";
 import Header from "../../components/Header";
 import { Route, Switch } from "react-router-dom";
 import Footer from "../../components/Footer/index";
-import TodoList from "../../components/TodoList";
+import CreateTodoList from "../../components/CreateTodoList";
 import SidebarMenu from "../../components/SidebarMenu";
+import CreateNote from "../../components/CreateNote/index";
 
 export default function Index() {
     return (
@@ -12,15 +13,18 @@ export default function Index() {
             <Header />
 
             <SidebarMenu
-                todoPath="/dashboard/todo-list"
-                notesPath="/dashboard/notes"
+                createTodoPath="/dashboard/create/todo-list"
+                createNotesPath="/dashboard/create/notes"
             />
             <main>
                 <Switch>
                     <Route
-                        exact
-                        path="/dashboard/todo-list"
-                        component={TodoList}
+                        path="/dashboard/create/todo-list"
+                        component={CreateTodoList}
+                    />
+                    <Route
+                        path="/dashboard/create/notes"
+                        component={CreateNote}
                     />
                 </Switch>
             </main>

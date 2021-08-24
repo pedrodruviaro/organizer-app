@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { FaPlusSquare, FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
-import { InputButtons } from "../Buttons";
-import { TodoList } from "./styles";
+import { InputButtons, SubmitButton } from "../Buttons";
+import { CreateTodoList } from "./styles";
 import { database } from '../../services/firebase'
 import { useAuth } from '../../contexts/AuthContext'
 import moment from "moment";
+import {PrimaryTitle} from '../../components/Typography'
+import { Input } from "../Input";
 
 export default function Index() {
 
@@ -69,9 +71,9 @@ export default function Index() {
     }
 
     return (
-        <TodoList>
-            <h1>Create your todo list</h1>
-            <input
+        <CreateTodoList>
+            <PrimaryTitle>Create your todo list</PrimaryTitle>
+            <Input
                 type="text"
                 placeholder="Title"
                 value={title}
@@ -106,9 +108,9 @@ export default function Index() {
                     )) : <span>Type your first task to preview!</span>}
                 </ul>
             </div>
-            <button type="button" onClick={saveTaskInFirebase}>
+            <SubmitButton type="button" onClick={saveTaskInFirebase}>
                 Done!
-            </button>
-        </TodoList>
+            </SubmitButton>
+        </CreateTodoList>
     );
 }

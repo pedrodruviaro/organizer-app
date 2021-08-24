@@ -9,14 +9,14 @@ import { BsArrowBarRight } from "react-icons/bs";
 export default function Index(props) {
     const links = [
         {
-            path: props.todoPath,
+            path: props.createTodoPath,
             icon: <RiTaskLine />,
-            label: "Todos",
+            label: "Create Todo",
         },
         {
-            path: props.notesPath,
+            path: props.createNotesPath,
             icon: <FaRegStickyNote />,
-            label: "Notes",
+            label: "Create Note",
         },
     ];
 
