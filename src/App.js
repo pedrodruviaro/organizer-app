@@ -9,7 +9,9 @@ import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 
+
 function App() {
+
     return (
         <ThemeProvider theme={lightTheme}>
             <GlobalStyles />

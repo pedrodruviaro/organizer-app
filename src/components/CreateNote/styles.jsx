@@ -17,6 +17,21 @@ export const CreateNote = styled.section`
         width: 100%;
     }
 
+    fieldset {
+        display: flex;
+        /* flex-direction: column; */
+        gap: 2rem;
+
+        label,
+        input {
+            cursor: pointer;
+        }
+
+        input {
+            margin-right: 0.25rem;
+        }
+    }
+
     textarea {
         resize: vertical;
         min-height: 150px;
@@ -27,5 +42,21 @@ export const CreateNote = styled.section`
         border: 1px solid ${(props) => props.theme.accent};
         outline: none;
         width: 100%;
+    }
+
+    div {
+        label {
+            align-items: center;
+            display: flex;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        input {
+            cursor: pointer;
+            background-color: transparent;
+            border-radius: 4px;
+            padding: 0 .15rem;
+        }
     }
 `;

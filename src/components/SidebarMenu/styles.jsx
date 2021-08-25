@@ -18,11 +18,14 @@ export const SidebarMenu = styled.aside`
     }
 
     .link-text {
-        display: none;
+        /* display: none; */
+        opacity: 0;
+        transition: opacity .6s linear;
     }
 
     &:hover .link-text {
         display: block;
+        opacity: 1;
     }
 
     &:hover .logo span{
@@ -70,7 +73,7 @@ export const SidebarMenu = styled.aside`
             transform: rotate(0);
             transition: transform .6s;
             min-width: 2rem;
-            font-size: 2rem;
+            font-size: 1.75rem;
             margin: 0 1.5rem;
         }
     }
@@ -85,8 +88,8 @@ export const SidebarMenu = styled.aside`
         }
 
         svg {
-            min-width: 2rem;
-            font-size: 2rem;
+            min-width:  2rem;
+            font-size: 1.75rem;
             margin: 0 1.5rem;
         }
     }

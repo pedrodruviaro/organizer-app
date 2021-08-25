@@ -1,6 +1,7 @@
 import moment from "moment";
 import React from "react";
 import { useAuth } from "../../contexts/AuthContext";
+// import ThemeToggler from "../ThemeToggler/index";
 import { Header } from "./styles";
 
 export default function Index() {
@@ -13,6 +14,7 @@ export default function Index() {
                 <img src={user.avatar} alt={user.name} />
                 <span>{user.name}</span>
             </div>
+            {/* <ThemeToggler /> */}
         </Header>
     );
 }
