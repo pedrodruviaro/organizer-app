@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+// icons
 import { SidebarMenu } from "./styles";
 import { FaRegStickyNote } from "react-icons/fa";
 import { RiTaskLine } from "react-icons/ri";
-import { FiLogOut } from "react-icons/fi";
+import { FiLogOut, FiList } from "react-icons/fi";
 import { BsArrowBarRight } from "react-icons/bs";
+import { GiMoneyStack } from "react-icons/gi";
+import { CgNotes } from "react-icons/cg";
 
 export default function Index(props) {
     const links = [
@@ -14,9 +18,24 @@ export default function Index(props) {
             label: "Create Todo",
         },
         {
+            path: props.listTodoPath,
+            icon: <FiList />,
+            label: "Todos List",
+        },
+        {
             path: props.createNotesPath,
             icon: <FaRegStickyNote />,
             label: "Create Note",
+        },
+        {
+            path: props.listNotesPath,
+            icon: <CgNotes />,
+            label: "Notes List",
+        },
+        {
+            path: props.createExpenseTrackerPath,
+            icon: <GiMoneyStack />,
+            label: "Expense Tracker",
         },
     ];
 
