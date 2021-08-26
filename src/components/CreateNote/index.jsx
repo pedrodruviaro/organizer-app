@@ -6,12 +6,17 @@ import {database} from '../../services/firebase'
 import {useAuth} from '../../contexts/AuthContext'
 import { SubmitButton } from "../Buttons";
 import moment from "moment";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+
+import toast,{ Toaster} from 'react-hot-toast'
 
 export default function Index() {
 
+    const notifySucess = () => toast.success("Note created successfully!")
+    const notifyError = () => toast.error("Something is empty...")
+
     const {user} = useAuth()
-    const history = useHistory()
+    // const history = useHistory()
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -26,6 +31,7 @@ export default function Index() {
         e.preventDefault();
 
         if (title.trim() === "" || content.trim() === "") {
+            notifyError()
             return;
         }
 
@@ -44,7 +50,10 @@ export default function Index() {
         setColor("#1ea5fc")
         setCategory('work')
 
-        history.push('/dashboard/list/notes')
+        
+        notifySucess()
+
+        // history.push('/dashboard/list/notes')
     }
 
     return (
@@ -109,6 +118,13 @@ export default function Index() {
 
                 <SubmitButton type="submit">Add Note</SubmitButton>
             </form>
+
+            <Toaster 
+            position="top-center"
+            reverseOrder={false}
+            toastOptions={{
+                duration: 1500}}
+            />
 
         </CreateNote>
     );

@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
+
 export const Dashboard = styled.div`
+
+
+
     margin-left: 5rem;
     display: grid;
     grid-template-columns: 1fr;

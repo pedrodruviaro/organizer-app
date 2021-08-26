@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import {database} from '../../services/firebase'
 import {useAuth} from '../../contexts/AuthContext'
 
-
 export default function Index() {
+
 
     const [notes, setNotes] = useState([])
     const {user} = useAuth()

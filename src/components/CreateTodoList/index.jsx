@@ -7,8 +7,12 @@ import { useAuth } from '../../contexts/AuthContext'
 import moment from "moment";
 import {PrimaryTitle} from '../../components/Typography'
 import { Input } from "../Input";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Index() {
+
+    const notifySucess = () => toast.success("Note created successfully!")
+    const notifyError = () => toast.error("Something is empty...")
 
     const {user} = useAuth()
     const [tasks, setTasks] = useState([]);
@@ -21,6 +25,7 @@ export default function Index() {
         e.preventDefault();
 
         if(taskContent.trim() === ""){
+            notifyError()
             return
         }
 
@@ -52,6 +57,7 @@ export default function Index() {
     // send list to firebase
     async function saveTaskInFirebase() {
         if(title.trim() === "" || tasks.length === 0){
+            notifyError()
             return
         }
 
@@ -68,9 +74,12 @@ export default function Index() {
         setTaskContent("")
         setTasks([])
         setShowTitle(false)
+
+        notifySucess()
     }
 
     return (
+        <>
         <CreateTodoList>
             <PrimaryTitle>Create your todo list</PrimaryTitle>
             <Input
@@ -111,6 +120,18 @@ export default function Index() {
             <SubmitButton type="button" onClick={saveTaskInFirebase}>
                 Done!
             </SubmitButton>
+
+
+
         </CreateTodoList>
+
+<Toaster 
+position="top-center"
+reverseOrder={false}
+toastOptions={{
+    duration: 1500}}
+/>
+
+</>
     );
 }

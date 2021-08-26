@@ -78,10 +78,16 @@ export const SidebarMenu = styled.aside`
         }
     }
 
+    a.active {
+        border-color: ${props => props.theme.accent};
+    }
+
     a {
         display: flex;
+        border-left: 3px solid transparent;
         align-items: center;
         height: 5rem;
+        padding-right: 3px;
 
         &:hover {
             background-color: #444;

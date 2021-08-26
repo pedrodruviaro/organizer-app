@@ -1,17 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 // icons
 import { SidebarMenu } from "./styles";
 import { FaRegStickyNote } from "react-icons/fa";
 import { RiTaskLine } from "react-icons/ri";
-import { FiLogOut, FiList } from "react-icons/fi";
+import { FiLogOut, FiList, FiHome } from "react-icons/fi";
 import { BsArrowBarRight } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
 import { CgNotes } from "react-icons/cg";
 
 export default function Index(props) {
+    const location = useLocation();
+
     const links = [
+        {
+            path: "/dashboard",
+            icon: <FiHome />,
+            label: "Dashboard",
+        },
         {
             path: props.createTodoPath,
             icon: <RiTaskLine />,
@@ -49,7 +56,14 @@ export default function Index(props) {
                     </li>
                     {links.map((link, i) => (
                         <li key={i}>
-                            <Link to={link.path}>
+                            <Link
+                                to={link.path}
+                                className={
+                                    location.pathname === link.path
+                                        ? "active"
+                                        : ""
+                                }
+                            >
                                 {link.icon}
                                 <span className="link-text">{link.label}</span>
                             </Link>
